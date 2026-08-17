@@ -4,6 +4,18 @@ Migrate content and media from independent legacy sites into a shared Laravel mu
 
 This repo generalizes a real, completed migration (four independent Laravel/Filament sites folded into one shared multi-tenant Filament platform) into a reusable pattern. Every real domain, credential, bucket name, and site-specific detail from that original migration has been replaced with generic placeholders — nothing here is copy-pasteable production data.
 
+## AI collaboration disclosure
+
+This repository — the scripts, the Artisan command, and this documentation — was developed in collaboration with an AI assistant (Anthropic's Claude), which helped generalize a real production migration into this reusable, sanitized template. Everything was reviewed for accuracy and to make sure no real credentials or site-specific data made it in, but treat this the way you would any AI-assisted code: read it carefully, test it against your own schema with `--dry-run` first, and adapt it to your own environment before trusting it with real data.
+
+## Need help understanding this repo?
+
+If you want a guided walkthrough of how the pieces fit together, paste a prompt like this into an AI coding assistant (Claude, ChatGPT, etc.) with the repo open or cloned locally:
+
+> "I'm looking at the `filament-tenant-onboard` repo. Walk me through how `scripts/extract_and_upload.py` and `app/Console/Commands/ImportTenantContent.php` work together, what assumptions each one makes about my own database schema, and what I'd need to change to adapt this to my own Laravel app."
+
+Swap in specifics — a particular file, an error message, or the step you're stuck on — for a more targeted answer.
+
 ## Why this exists
 
 If you're consolidating several independent "single-tenant" Laravel apps into one shared multi-tenant app (a common Filament pattern: one codebase, one database, each customer/organization scoped as a "tenant"), you end up needing to:
